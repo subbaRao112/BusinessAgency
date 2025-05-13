@@ -1,0 +1,349 @@
+*{
+  padding: 0;
+  margin:0;
+  list-style-type: none;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+@font-face{
+    font-family:'soulmaze';
+    src:url('fonts/MADE\ Soulmaze\ PERSONAL\ USE.otf') format('opentype');
+}
+@font-face{
+    font-family: 'soulmaze glass';
+    src:url('fonts/MADE\ Soulmaze\ Outline\ PERSONAL\ USE.otf') format('opentype');
+}
+html{
+    font-size: 63.5%;
+    font-family: 'Baloo Da 2',sans-serif;
+}
+.navbar{
+    width: 100%;
+    height: 8rem;
+    position: fixed;
+    padding: 3rem;
+    z-index: 10;
+    top:0;
+    top:-8rem;
+    background: rgb(0,0,0,0.8);
+    transition: height 0.5s;
+    animation: navbarHide 0.5s forwards;
+}
+.change{
+    height:100vh;
+}
+@keyframes navbarHide{
+    0%{
+      top:-8rem;
+    }
+    100%{
+      top:0;
+    }
+}
+
+.logo{
+ position: absolute;
+ top:1.5rem;
+ left:4rem;
+}
+.logo a{
+ color: #eee;
+ font-size: 2rem;
+ font-weight: 200;
+ font-family:'soulmaze',sans-serif;
+}
+.logo span{
+    font-size: 3.5rem;
+   font-weight: bold;
+    font-family:'soulmaze',sans-serif;
+    color: darkorange;
+}
+.navlist{
+    top: 25%;
+    left: 50%;
+    position: absolute;
+    transform:translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+}
+.change .navlist{
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.7s 0.2s;
+}
+.navlink{
+    color: #fff;
+    font-family: 'soulmaze',sans-serif;
+    font-size:3rem;
+    letter-spacing: 0.3rem;
+    margin:1rem 0;
+    transition: color 0.4s;
+}
+.navlink:hover{
+    color:#9e0e09;
+}
+
+.menu{
+    width:4rem;
+    height:4rem;
+    position: fixed;
+    z-index: 11;
+    top:1.5rem;
+    right: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+.line{
+    width:100%;
+    height:0.2rem;
+    background-color: #eee;
+    transition:transform 0.3s;
+}
+.line-1{
+width:50%;
+
+}
+.line-3{
+width:50%;
+margin-left: auto;
+
+}
+.change .line-1{
+    transform: translate(100%,1rem) rotate(-35deg);
+    transform-origin: right;
+}
+.change .line-3{
+    transform: translateY(-1rem) rotate(35deg);
+    transform-origin: right;
+}
+
+
+.section-1{
+width: 100%;
+height: 100vh;
+background: url(images/dark-bg.jpeg) no-repeat;
+background-size: cover;
+position: relative;
+}
+.banner{
+    color: #fff;
+    width: 100%;
+    position: absolute;
+    top:20%; 
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    overflow: hidden;
+}
+
+.banner-heading{
+   height: 20rem;
+   margin-bottom: 4rem;
+}
+.banner-heading span{
+    position:absolute;
+    font-weight: 400;
+    font-family: 'Oswald';
+    font-size: 10rem;
+    text-shadow: 0.3rem 0.3rem 0.3rem rgba(0,0,0,0.5);
+    text-transform: uppercase;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    
+
+}
+.banner-paragraph{
+    font-size: 2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    width: 30%;
+    margin: 0 auto 4rem auto;
+    box-shadow: 0.2rem 0.2rem 0.2rem rgba(0,0,0,0.5);
+    visibility: hidden;
+    opacity: 0;
+    animation: fadeAnimation 1s forwards;
+}
+
+.heading-1{
+    animation:animateBanner 12s 0s infinite;
+     
+}
+.heading-2{
+    animation: animateBanner 12s 3s infinite;
+}
+.heading-3{
+    animation: animateBanner 12s 6s infinite;
+}
+.heading-4{
+    animation: animateBanner 12s 9s infinite;
+}
+
+@keyframes animateBanner{
+    0%{
+        opacity: 0;
+        transform: scale(0.2);
+    }
+
+    10%{
+       
+        opacity: 1;
+        transform:scale(1);
+    }
+    30%{
+       
+        opacity: 0;
+        transform:span(0.5);
+    }
+
+    100%{
+        opacity: 0;
+        
+    }
+}
+.banner-btn{
+    width:30rem;
+    height:5rem;
+    background: linear-gradient(to right,#9b0e0e,#7e1010);
+    text-transform: uppercase;
+    color: #fff;
+    border: 0.1rem solid rgba(0,0,0,0.5) ;
+    border-radius: 2rem;
+    box-shadow: 1rem 2rem 3rem rgba(0,0,0,0.5);
+    text-shadow:.6rem .3rem .2rem rgb(0,0,0,0.4);
+    visibility: hidden;
+    opacity: 0;
+    position: relative;
+    overflow: hidden;
+    animation:fadeAnimation 1s 1s forwards;
+   
+}
+
+@keyframes fadeAnimation{
+    0%{
+        opacity: 0;
+        visibility: hidden;
+    }
+    100%{
+        opacity:1;
+        visibility:visible;
+    }
+}
+
+.banner-btn::before{
+    content: "";
+    width:100%;
+    height: 100%;
+    position:absolute;
+    top:0;
+    left:-100%;
+    background:linear-gradient(to right,transparent, #fff, transparent);
+    transform: skewX(-30deg);
+     transition: left 0.4s;
+}
+.banner-btn:hover::before{
+    left: 100%;
+}
+
+/* section-2 */
+
+.section-2{
+    width:100%;
+    height:100vh;
+    background-color: #222020;
+    display:flex;
+    align-items: center;
+    padding:0 10rem;
+    position:relative;
+}
+.section-2-heading{
+    font-family: 'Oswald',sans-serif;
+    font-weight: 300;
+    font-size:10rem;
+    color: #ddd;
+    margin-right: 2rem;
+}
+.section-2-line{
+    width: 15rem;
+    height:0.2rem;
+    background-color: #ddd;
+}
+.video-container{
+ width:50rem;
+ height:25rem;
+ position: absolute;
+ top:calc(50%-25rem);
+ right: 15rem;
+ box-shadow: 3rem 3rem 3rem rgba(0,0,0,0.7);
+}
+.controls{
+    width: 100%;
+    position: absolute;
+    bottom:0;
+    background-color: rgb(0,0,0,0.4);
+}
+.video-bar-wrapper{
+    width:100%;
+    height: 0.7rem;
+    background-color:black;
+    position:absolute;
+    left:0;
+    top:0;
+}
+.video-bar{
+    height:100%;
+    width:20%;
+    background-color: #d30819;
+}
+.buttons{
+    padding:1rem 0.5rem 0.5rem 0.5rem;
+}
+.buttons button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+button i{
+    color: #fff;
+    font-size: 2.8rem;
+}
+.video{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+    opacity: 0.3;
+}
+.section-2-paragraph{
+    width:100rem;
+    position: absolute;
+    bottom: -1rem;
+    right: 15rem;
+    font-size: 1.5rem;
+    color: #ddd;
+    border-top: 0.2rem double #ddd;
+    border-bottom: 0.2rem double #ddd;
+    padding: 0rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.fa-quote-left{
+    font-size: 5rem;
+    align-self: flex-start;
+    margin-bottom: 1rem;
+}
+.fa-quote-right{
+    font-size: 5rem;
+    align-self: flex-end;
+}
